@@ -7,6 +7,61 @@
     <title>Manabu</title>
 </head>
 <body>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, autem maxime asperiores, quam dolorum beatae nesciunt rem ab totam maiores nemo, ipsa provident? Dolor officiis ipsam unde odio sequi saepe.</p>
+    <div class="button">
+        <button id="add-button" onclick="document.getElementById('fileInput').click()">+ add</button>
+    </div>
+    
+    <div class="preview-container">
+        <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="displayImage(this)">
+        <img id="preview" src="" style="max-width: 300px;">
+    </div>
+    <button id="upload">Send</button>
+    <p id="result"></p>
+
+    <script>
+        
+        function displayImage(input){
+            const file = input.files[0];
+            if(file){
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("preview").src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+
+                const formData = new FormData();
+                formData.append('file', file);
+                fetch("/upload/image", {
+                    method: "POST",
+                    body: formData
+                })
+                .catch(error =>{
+                    console.log("Something went wrong")
+                })
+
+
+            }
+        }
+
+        document.getElementById('upload').addEventListener('click', function(){
+            getGeminiResponse();
+        })
+        function getGeminiResponse(){
+            fetch('/ai', {
+                method: 'GET'
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data)
+                document.getElementById('result').innerHTML = data;
+            })
+            .catch(error => {
+                console.log("error");
+            })
+            
+        }
+
+
+    </script>
 </body>
 </html>
