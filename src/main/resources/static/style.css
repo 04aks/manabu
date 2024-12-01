@@ -12,8 +12,13 @@ body{
     justify-content: center;
     /* outline: 2px solid red; */
 }
-
-#add-button{
+#result{
+    color: white;
+}
+.button{
+    margin: 20px;
+}
+.button button{
     border: 0;
     border-radius: 10px;
     padding: 10px;
@@ -21,6 +26,10 @@ body{
     color: WHITE;
     transform: background-color 0.5s ease;
 }
-#add-button:hover{
+.button button:hover{
     background-color: rgb(0, 145, 12);;
+}
+.centered{
+    display: flex;
+    justify-content: center;
 }
