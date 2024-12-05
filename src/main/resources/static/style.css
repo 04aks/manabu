@@ -1,5 +1,6 @@
 *{
     /* outline: 2px solid red; */
+    font-weight: bold;
 }
 body{
     background-color: black;
@@ -10,6 +11,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+    position: relative;
     /* outline: 2px solid red; */
 }
 #result{
@@ -24,12 +29,52 @@ body{
     padding: 10px;
     background-color: rgb(0, 66, 11);
     color: WHITE;
-    transform: background-color 0.5s ease;
+    transition: transform 0.3s ease;
+    
 }
 .button button:hover{
-    background-color: rgb(0, 145, 12);;
+    animation: buttonHover 0.3s forwards;
+    cursor: pointer;
 }
+.button button:not(:hover){
+    animation: buttonUnHover 0.3s forwards;
+    cursor: pointer;
+}
+
 .centered{
     display: flex;
     justify-content: center;
+}
+
+@keyframes buttonHover {
+    from{
+        background-color: rgb(0, 66, 11);
+        transform: translateY(0px);
+    }
+    to{
+        background-color: rgb(0, 145, 12);
+        transform: translateY(-5px);
+    }
+}
+@keyframes buttonUnHover {
+    from{
+        background-color: rgb(0, 145, 12);
+        transform: translateY(-5px);
+    }
+    to{
+        background-color: rgb(0, 66, 11);
+        transform: translateY(0px);
+    }
+}
+
+.preview-container img{
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+}
+.preview-container img:hover{
+    transform: scale(2.5);
 }
