@@ -1,33 +1,55 @@
 *{
     /* outline: 2px solid red; */
     font-weight: bold;
-}
-body{
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-}
-.preview-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: fit-content;
-    height: fit-content;
-    overflow: hidden;
-    position: relative;
-    /* outline: 2px solid red; */
-}
-#result{
+    font-family: 'Poppins', sans-serif;
     color: white;
 }
-.button{
-    margin: 20px;
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
 }
+.translation{
+    width: 50%;
+    color: white;
+}
+.static{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.buttons-layout{
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradient */
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+.manga-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
 .button button{
     border: 0;
     border-radius: 10px;
     padding: 10px;
-    background-color: rgb(0, 66, 11);
+    background-color: rgb(2, 104, 19);
     color: WHITE;
     transition: transform 0.3s ease;
     
@@ -48,7 +70,7 @@ body{
 
 @keyframes buttonHover {
     from{
-        background-color: rgb(0, 66, 11);
+        background-color: rgb(2, 104, 19);
         transform: translateY(0px);
     }
     to{
@@ -62,16 +84,14 @@ body{
         transform: translateY(-5px);
     }
     to{
-        background-color: rgb(0, 66, 11);
+        background-color: rgb(2, 104, 19);
         transform: translateY(0px);
     }
 }
 
 .preview-container img{
-    width: 100%;
     border-radius: 10px;
     height: auto;
-    object-fit: cover;
     transition: transform 0.3s ease;
     transform-origin: center center;
 }
