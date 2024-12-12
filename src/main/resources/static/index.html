@@ -36,7 +36,7 @@
 
 
     <div class="translation">
-        <p id="result"></p>
+        <div id="sentences_container"></div>
     </div>
     
     
@@ -74,10 +74,20 @@
             fetch('/ai', {
                 method: 'GET'
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
-                console.log(data)
-                document.getElementById('result').innerHTML = data;
+                const sentencesContainer = document.getElementById('sentences_container');
+                sentencesContainer.innerHTML = '';
+
+                data.sentence_array.forEach(sentence =>{
+                    const sentenceDiv = document.createElement('div')
+                    sentenceDiv.innerHTML = `
+                        <h2>- ${sentence}</h2>
+                    `
+                    sentenceDiv.classList.add('sentences-child')
+                    sentencesContainer.appendChild(sentenceDiv);
+
+                })
             })
             .catch(error => {
                 console.log("error");

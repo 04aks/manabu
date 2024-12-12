@@ -12,6 +12,10 @@ body{
     flex-direction: row;
 }
 .translation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 50%;
     color: white;
 }
@@ -97,4 +101,13 @@ body{
 }
 .preview-container img:hover{
     transform: scale(2.5);
+}
+
+
+.sentences-child h2{
+    background: rgb(26, 26, 26);
+    padding: 15px;
+    margin: 5px;
+    border-radius: 10px;
+    
 }
