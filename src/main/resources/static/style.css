@@ -25,7 +25,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: auto;
+
+    /* Hide scrollbar in WebKit browsers */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */    
+}
+.static::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
 }
 .buttons-layout{
     width: 50%;
@@ -94,6 +101,7 @@ body{
 }
 
 .preview-container img{
+    position: relative;
     border-radius: 10px;
     height: auto;
     transition: transform 0.3s ease;
@@ -104,10 +112,35 @@ body{
 }
 
 
-.sentences-child h2{
+.sentences-child{
     background: rgb(26, 26, 26);
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     margin: 5px;
     border-radius: 10px;
-    
+    animation: popUp 0.3s ease;
 }
+.sentences-child h2{
+    animation: popUp 0.3s ease;
+}
+.sentences-child:hover{
+    cursor: pointer;
+    background: rgb(34, 34, 34);
+}
+
+
+@keyframes popUp{
+    from{
+        transform: translateY(-20px);
+        opacity: 0;
+    }to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+
+
+
