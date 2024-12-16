@@ -36,7 +36,10 @@
 
 
     <div class="translation">
-        <div id="sentences_container"></div>
+        <div id="sentences_container" onclick="toggleExpand(this)">
+            <div id="expanded-content"></div>
+        </div>
+        
     </div>
     
     
@@ -76,23 +79,38 @@
             })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
+                
+                const expandedContainer = document.getElementById("expanded-content");
                 const sentencesContainer = document.getElementById('sentences_container');
-                sentencesContainer.innerHTML = '';
+                sentencesContainer.innerHTML = "";
+                expandedContainer.innerHTML = '';
 
                 data.sentence_array.forEach(sentence =>{
+                    
                     const sentenceDiv = document.createElement('div')
+                    const transSentenceDiv = document.createElement('div')
                     sentenceDiv.innerHTML = `
-                        <h2>- ${sentence}</h2>
+                        <h2>- ${sentence.japanese_sentence}</h2>
                     `
-                    sentenceDiv.classList.add('sentences-child')
+
+                    transSentenceDiv.innerHTML = `
+                        <h3>${sentence.translated_sentence}</h3>
+                    `
+                    
+                    sentenceDiv.classList.add('sentences-child');
                     sentencesContainer.appendChild(sentenceDiv);
+                    expandedContainer.appendChild(transSentenceDiv);
 
                 })
             })
             .catch(error => {
-                console.log("error");
+                console.log(error);
             })
             
+        }
+        function toggleExpand(element){
+
         }
 
 
