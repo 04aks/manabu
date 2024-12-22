@@ -99,13 +99,11 @@ body{
     }
 }
 .preview-container{
-    /* width: auto;
-    height: 90%; */
 }
 .preview-container img{
     position: relative;
     border-radius: 10px;
-    height: 50%;
+    width: 100%;
     transition: transform 0.3s ease;
     transform-origin: center center;
 }
