@@ -14,14 +14,13 @@ body{
 .translation{
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     width: 50%;
     color: white;
 }
 .static{
     width: 50%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +35,7 @@ body{
 }
 .buttons-layout{
     width: 50%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradient */
 }
@@ -99,16 +98,19 @@ body{
         transform: translateY(0px);
     }
 }
-
+.preview-container{
+    /* width: auto;
+    height: 90%; */
+}
 .preview-container img{
     position: relative;
     border-radius: 10px;
-    height: auto;
+    height: 50%;
     transition: transform 0.3s ease;
     transform-origin: center center;
 }
 .preview-container img:hover{
-    transform: scale(2.5);
+    /* transform: scale(2.5); */
 }
 
 
@@ -128,6 +130,15 @@ body{
 .sentences-child:hover{
     cursor: pointer;
     background: rgb(34, 34, 34);
+}
+
+.hidden{
+    display: none;
+}
+.expanded-container{
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    font-size: 12px;
+    padding-bottom: 5px;
 }
 
 
